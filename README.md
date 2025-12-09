@@ -136,14 +136,6 @@ MSc Dissertation, Universidade XXXX.
 
 ---
 
-## 📬 Contact
-
-**Lucas de Oliveira Batista**  
-Email: lobatista@outlook.com  
-
-**Dr. Paulo Vitor de Campos Souza**  
-Email: psouza@novaims.unl.pt  
-
 
 ---
 
@@ -151,7 +143,7 @@ Email: psouza@novaims.unl.pt
 
 # Understanding the Shift: Why Batch Evaluation Is Insufficient for Software Engineering Data — and How Evolving Neuro-Fuzzy Models Reveal Hidden Dynamics
 
-## 1. Introduction
+## 🎯 1. Introduction
 
 The original authors of the Apache “due tasks” dataset evaluated the problem using traditional batch machine-learning models such as SVMs, Random Forests, logistic regression, MLPs, and static feature-selection methods. Their evaluation assumed a stationary learning scenario, where all data are available at once and the distribution does not change over time.
 
@@ -170,7 +162,7 @@ Together, these models offer a complete framework for understanding how knowledg
 
 ---
 
-## 2. What the Original Authors Did (and Why It Was Limited)
+## 📚 2. What the Original Authors Did (and Why It Was Limited)
 
 The initial studies on the Apache dataset followed the classical supervised-learning paradigm:
 
@@ -193,7 +185,7 @@ This project fills that gap.
 
 ---
 
-## 3. Why Software Engineering Data Are Naturally Non-Stationary
+## 🔄 3. Why Software Engineering Data Are Naturally Non-Stationary
 
 Software systems evolve due to multiple factors:
 
@@ -225,7 +217,7 @@ Therefore:
 
 ---
 
-## 4. Why Evolving Models Are Needed
+## 🤖 4. Why Evolving Models Are Needed
 
 Evolving models — such as ePL, ePL+, exTS, Simpl_eTS, eMG, and especially ENFS-Uni0-Evolving — are designed to:
 
@@ -244,7 +236,7 @@ This makes them ideal for software-engineering datasets, where behaviour rarely 
 
 ---
 
-## 5. ENFS-Uni0 (Offline) vs. ENFS-Uni0-Evolving (Online)
+## 🧠 5. ENFS-Uni0 (Offline) vs. ENFS-Uni0-Evolving (Online)
 
 ### ENFS-Uni0 (offline)
 - batch neuro-fuzzy classifier  
@@ -268,7 +260,7 @@ the evolving model explains how behaviour changes over time.**
 
 ---
 
-## 6. Interpretability and Drift Awareness
+## 🔍 6. Interpretability and Drift Awareness
 
 A unique contribution of this work is that drift becomes interpretable.
 
@@ -294,7 +286,7 @@ This is extremely rare in machine learning.
 
 ---
 
-## 7. Why This Research Is Novel
+## 🌟 7. Why This Research Is Novel
 
 Batch evaluation hides structural patterns in the Apache dataset.  
 Your streaming experiments show:
@@ -322,9 +314,9 @@ and offers a genuinely new scientific contribution.
 
 ---
 
-## 8. A Roadmap for the Thesis
+## 🗺️ 8. A Roadmap for the Thesis
 
-This project enables the student (Lucas) to investigate:
+This project enables the student to investigate:
 
 - the dynamic behaviour of Apache project data  
 - when and how drift occurs  
@@ -344,7 +336,7 @@ forms a powerful foundation for a thesis.
 
 ---
 
-## 9. Contacts
+## 📬 Contact
 
 **Lucas de Oliveira Batista**  
 Email: lobatista@outlook.com  
