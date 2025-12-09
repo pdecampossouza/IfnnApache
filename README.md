@@ -37,6 +37,8 @@ stream-fuzzy-apache/
 │   ├── enfs_uni0_evolving.py    # Updated ENFS-Uni0 with interpretability tracking
 │   └── baseline_models.py       # Wrapper for Kaike’s models (ePL, exTS, eMG…)
 │
+│├── experiments/ # Files related to the offline version of EFNS-Uni0
+│  
 ├── Pipeline/
 │   ├── script0_prepare_data.py              
 │   ├── script1_feature_selection_fnn.py     
