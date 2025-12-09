@@ -1,0 +1,13 @@
+{
+  "num_seeds": 2,
+  "neuron_types": [
+    "andneuron",
+    "orneuron"
+  ],
+  "num_mfs_options": [
+    2
+  ],
+  "activation": "linear",
+  "optimizer": "pso",
+  "pruning": "none"
+}

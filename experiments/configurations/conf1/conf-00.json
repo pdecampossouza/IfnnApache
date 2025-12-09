@@ -1,0 +1,26 @@
+{
+  "num_seeds": 10,
+  "neuron_types": [
+    "andneuron",
+    "orneuron"
+  ],
+  "num_mfs_options": [
+    2,
+    3
+  ],
+  "activation": "sigmoid",
+  "optimizer": "pso",
+  "pruning": "consistency",
+  "model_types": [
+    "MLP",
+    "RandomForest",
+    "NaiveBayes",
+    "SVM",
+    "KNN",
+    "DecisionTree",
+    "LogisticRegression",
+    "GradientBoosting",
+    "AdaBoost",
+    "SGD"
+  ]
+}
