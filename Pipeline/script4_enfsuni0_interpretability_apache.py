@@ -101,58 +101,50 @@ DRIFT_MODES = ["fixed3", "real3"]
 
 
 def load_apache_numeric(feature_mode: str) -> Tuple[np.ndarray, np.ndarray, List[str]]:
-    """
-    Load Apache 'due' numeric dataset and select features according to feature_mode.
-
-    Parameters
-    ----------
-    feature_mode : {"fnn_selected", "all_features"}
-
-    Returns
-    -------
-    X : np.ndarray, shape (N, d)
-        Feature matrix in temporal order (sorted by openeddate).
-    y : np.ndarray, shape (N,)
-        Binary target (y_binary: 0 = no delay, 1 = delay).
-    feature_names : list of str
-        Names of the selected features.
-    """
     csv_path = DATASET_DIR / NUMERIC_CSV_NAME
     sel_path = FEATURE_DIR / SELECTED_FEATURES_JSON
 
     if not csv_path.exists():
-        raise FileNotFoundError(f"Numeric CSV not found: {csv_path}")
+        raise FileNotFoundError(csv_path)
     if not sel_path.exists():
-        raise FileNotFoundError(f"Selected features JSON not found: {sel_path}")
+        raise FileNotFoundError(sel_path)
 
     df = pd.read_csv(csv_path)
 
-    # Ensure temporal order
+    # garantir ordem temporal
     if "openeddate" in df.columns:
         df["openeddate"] = pd.to_datetime(df["openeddate"])
         df = df.sort_values("openeddate").reset_index(drop=True)
 
-    # Target
     if "y_binary" not in df.columns:
-        raise ValueError("Column 'y_binary' not found in apache_due_numeric.csv")
+        raise ValueError("Column 'y_binary' missing!")
+
     y = df["y_binary"].values.astype(int)
 
-    # Feature selection
     if feature_mode == "fnn_selected":
+        # usa as features escolhidas pelo Script 1
         with open(sel_path, "r", encoding="utf-8") as f:
             feature_sets = json.load(f)
         feature_names = feature_sets["features_fnn"]
 
     elif feature_mode == "all_features":
+        # só queremos colunas NUMÉRICAS, exceto as de identificação / alvo
         drop_cols = {"issuekey", "openeddate", "delaydays", "impact_class", "y_binary"}
-        feature_names = [c for c in df.columns if c not in drop_cols]
+
+        # pega apenas colunas numéricas
+        numeric_cols = set(df.select_dtypes(include=[np.number]).columns.tolist())
+
+        # remove as que não devem entrar como preditoras
+        feature_names = [c for c in numeric_cols if c not in drop_cols]
+
+        # ordenar para ficar estável (opcional, mas ajuda na reprodutibilidade)
+        feature_names = sorted(feature_names)
 
     else:
-        raise ValueError(f"Unknown feature_mode: {feature_mode}")
+        raise ValueError(f"Unknown feature mode: {feature_mode}")
 
     X = df[feature_names].values.astype(float)
 
-    # Optional: limit length for quick experiments
     if N_MAX is not None and X.shape[0] > N_MAX:
         X = X[:N_MAX]
         y = y[:N_MAX]
